@@ -37,3 +37,42 @@
     background: #b5e853;
     color: #232323;
 }
+/* CSS for Bash-style Menu */
+.bash-menu {
+    background: #232323;
+    color: #b5e853;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    margin: 20px auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.bash-menu h2 {
+    color: #fff;
+    margin-bottom: 16px;
+    font-size: 1.3em;
+}
+.bash-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.bash-menu li {
+    margin: 10px 0;
+}
+.bash-menu button {
+    background: #232323;
+    color: #b5e853;
+    border: 1px solid #b5e853;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.bash-menu button:hover {
+    background: #b5e853;
+    color: #232323;
+}
