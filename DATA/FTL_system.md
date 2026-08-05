@@ -106,6 +106,20 @@ break caller contact @SERVICE_ID_TEMP_ACCOUNT
 #       # interface with UIX.
 # ----------------------------------------------
 
+0. exit program
+1. Launch setup.exe*
+2.  <-- Settings -->
+3. $: Configurations
+4. // OpenFiles Quick Fixes Patchwork
+5. XTTPS XSSL ( Custom Protocol UIX )
+6. VMOS VIRTUAL BOX ISO
+7. Mars Preserve Co-Op
+8. AI BLOCKCHAIN
+9. SIGIL CUBE MATRIX
+
+
+
+
 END;
 
 
