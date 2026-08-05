@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Drive Health & Reboot Analysis</title>
+    <style>
+        /* CSS optimized for screen viewing and clean paper print-outs */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            white-space: pre-wrap; /* Wraps long lines nicely on print */
+            word-wrap: break-word;
+        }
+        code {
+            color: #d63384;
+        }
+        .print-btn {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .print-btn:hover {
+            background-color: #0056b3;
+        }
+        @media print {
+            .print-btn {
+                display: none; /* Hide button when printing */
+            }
+            pre {
+                background-color: transparent !important;
+                border: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>System Drive Health & Reboot Diagnostic Report</h2>
+    <button class="print-btn" onclick="window.print()">Print Report</button>
+
+    <pre><code><#-- Header Information -->
+================================================================================
+HOST SYSTEM:      ${systemInfo.hostname!'N/A'}
+REPORT GENERATED: ${.now?string("yyyy-MM-dd HH:mm:ss")}
+OVERALL STATUS:   [ <#if systemInfo.healthy>HEALTHY<#else>WARNING / CRITICAL</#if> ]
+================================================================================
+
+[ 1. SYSTEM REBOOT HISTORY ]
+--------------------------------------------------------------------------------
+TIMESTAMP (UTC)       | REBOOT TYPE         | TRIGGERED BY     | STATUS
+--------------------------------------------------------------------------------
+<#if rebootLogs?has_content>
+    <#list rebootLogs as log>
+${log.timestamp?string("yyyy-MM-dd HH:mm:ss")} | ${log.type?right_pad(19)} | ${log.triggeredBy?right_pad(16)} | ${log.status}
+    </#list>
+<#else>
+No recent reboot logs recorded.
+</#if>
+
+[ 2. SYSTEM DRIVE HEALTH ANALYSIS ]
+--------------------------------------------------------------------------------
+DRIVE | MODEL / FS      | TOTAL SIZE | USED (%) | STATUS     | SMART HEALTH
+--------------------------------------------------------------------------------
+<#if driveHealths?has_content>
+    <#list driveHealths as drive>
+${drive.name?right_pad(5)} | ${drive.model?right_pad(15)} | ${drive.totalSize?right_pad(10)} | ${drive.usedPercent}% <#if drive.usedPercent > 85>[HIGH]<#else>[OK]  </#if> | ${drive.status?right_pad(10)} | ${drive.smartStatus}
+    </#list>
+<#else>
+No drive health metrics available.
+</#if>
+
+================================================================================
+END OF DIAGNOSTIC REPORT
+================================================================================
+    </code></pre>
+
+</body>
+</html>
