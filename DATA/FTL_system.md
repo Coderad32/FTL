@@ -141,8 +141,6 @@ if (caller0) { # Standard execution check
         }
     }
 }
-
-```
-
 1;
 __END__
+```
