@@ -1,132 +1,148 @@
 ```perl
-############################
-#   EXAMPLE
-import system.FTL > open(system*) # FTL OPEN ONLINE
-# DATA: application/PATH
-# META: PATH/META
-use strict
-use warnings
-# USB1: ROUTE/USB1
-load('USB1 from device hardware.')
-# Service ID Account AUTH
-###########################
-```
-```perl
-# =============== #
-BEGIN: Application/DATA => DATA/Application
-# =============== #
-    # EXAMPLE DATA: User Name
-    $user => @name
-    my $user = $name
-    my $name:="github.com/@coderad32"
-    # LISTED  TODO: Account Service List
-    ++ Account
-    + Service
-    = @List
-    # COMMAND GOTO: Service ID
-    == Service ID
-    GOTO: COMMAND: @ROUTE $PATH *charset
-    # COMMAND AUTH: ID From Service List
-    ID AUTH COMMAND: @FROM $SERVICE *SELECT: 'LIST/SRC'
-# =============== #
-case caller connect select index
-# =============== #
-Caller Technology Stack
-stat caller connect
-index select source DATA FTL.log for more information.
-# =============== #
-1; return( _value_ )
-# =============== #
-END
-```
-```perl
-# ========================================
-#       APPLICATION DATA EXAMPLE DATA GUIX
-#       -- PIPELINE --
-# OPEN SUPPORT NETWORK DECENTRIALIZED PAYMENT SUPPORT NETWORK
+
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+# =====================================================================
+# APPLICATION DATA EXAMPLE DATA GUIX - REWRITTEN IN PERL
 # SOURCE CODE MIT CC - CA - CS - CB - CV Version 2.3.0
-# Serial Build: 1  # Sector 9
-# Version Number 3 # CLASSIFICATION: ALPHA
-# Content DATA Example Script engine UIX
-# =======================================
+# Serial Build: 1 | Sector 9 | Version Number 3 | CLASSIFICATION: ALPHA
+# =====================================================================
 
-import system from index select connect TOPDIR['TOP_DIR'] => DATA/application
+package Application::FTL;
 
-    SUB CONNECTING TOPDIR    { ... }; #
-    SUB RELAY SERVICE MODULE { ... }; # 
-    SUB SERVICE MODULE       { ... }; #
-    SUB SUPPORT MODULE       { ... }; #
+use subs qw(
+    CONNECTING_TOPDIR
+    RELAY_SERVICE_MODULE
+    SERVICE_MODULE
+    SUPPORT_MODULE
+    handle_menu_choice
+);
 
-# /////////////////////////////////////
-# -- |> DATA >|> META >| SSD TITLED WORK
-# $$ RESPECT THE GO AROUND !!
-# USB1: RESPECTED.
-# META: IMPACT SELECTED
-# USB2: Human Support Network
-# ///////////////////////////////////
+# Global configurations and constants
+our $VERSION = '2.3.0';
+use constant TOPDIR => 'DATA/application';
 
-SERVICE ID: shields.io
-Connect > Index :Select: TOPDIR
-ID BADGE LOGIN
+sub CONNECTING_TOPDIR {
+    my ($target) = @_;
+    print "[INFO] Connecting to TOPDIR: $target ... LOADING UIX\n";
+    # Simulated connection and patch updates
+    print "[INFO] Update Linux stat for patchwork complete.\n";
+    return 1;
+}
 
-# a|b||||||||||||||||||||||||||||||||||
-# Application DATA select service ID
-# Connect > Index :Select: TOPDIR
-# CONNECTING TO TOPDIR .... LOADING UIX
-# UPDATE LINUX STAT FOR PATCHWORK !!
-# a|b||||||||||||||||||||||||||||||||||
+sub RELAY_SERVICE_MODULE {
+    my ($service_id) = @_;
+    print "[RELAY] Relaying service module for ID: $service_id\n";
+    return { status => 'success', id => $service_id };
+}
 
+sub SERVICE_MODULE {
+    my ($service_id) = @_;
+    print "[SERVICE] Initializing service module for: $service_id\n";
+    return 1;
+}
 
-return select connect index return value @service ID: shields.io
-case caller connect select service ID @support ID: array caller division.
+sub SUPPORT_MODULE {
+    my ($division) = @_;
+    print "[SUPPORT] Engaging support module for division: " . ($division // 'default') . "\n";
+    return 1;
+}
 
-return ARRAY[p=equals authentication to mainframe. ] 
-connect select index return value @service ID: shields.io
+sub run_pipeline {
+    my %config = (
+        user      => 'coderad32',
+        name      => 'github.com/coderad32',
+        service_id => 'shields.io',
+        route     => 'application/route/path'
+    );
 
-BEGIN: application/DATA => DATA/application
+    print "========================================\n";
+    print " FTL OPEN ONLINE - SYSTEM INITIALIZED\n";
+    print "========================================\n";
 
-for while connect DATA => DATA connect: application/route/path=[contact: User Name]
+    # Load hardware device simulation
+    print "[USB1] Loading from device hardware...\n";
+    
+    # Connect and index TOPDIR
+    CONNECTING_TOPDIR(TOPDIR);
 
-case caller connect select index SOURCE CODE SUB MODULE { ... }
+    # Authentication and Service ID Routing
+    print "[AUTH] Authenticating to mainframe for service: $config{service_id}\n";
+    SERVICE_MODULE($config{service_id});
+    RELAY_SERVICE_MODULE($config{service_id});
 
-SOURCE CODE { ... } && CONNECT: SERVICE ID SUB THREAD { ... }
-while do COMMAND VALID OPSEC SERVICE ID ARRAY CALLER CALLBACK RETURN
-else wait 1.00000000 ms if 1 is 0 and 0 is 1
-break caller contact @SERVICE_ID_TEMP_ACCOUNT
-# ============= # # ======================== # # =================== #
-# Aysnc: CONNECT / SERVICE / SUPPORT / SYSTEM
-# GUIX: TYPE COMMANDS VIA COMMAND KEYBOARD
-# UIX: LOAD INTERFACE FROM USB1 SANDISK USB-DEVICE
-# LOOPBACK: CODE CONNECT SERVICE MODULE SUB SPACE-RELAY-NODE
-# ========== # # =========================== ## ===================== #
-# -----------------------------------------------
-#       # Source Code Index SELECT TOPDIR
-#       # TOPDIR CONNECTED.
-#       # LOAD(GUIX)
-#       # interface with UIX.
-# ----------------------------------------------
+    # Simulated asynchronous execution loop
+    my $counter = 0;
+    while ($counter < 1) {
+        # OPSEC Service ID Array Caller Callback Simulation
+        SUPPORT_MODULE('array caller division');
+        $counter++;
+    }
 
-0. exit program
-1. Launch setup.exe*
-2.  <-- Settings -->
-3. $: Configurations
-4. // OpenFiles Quick Fixes Patchwork
-5. XTTPS XSSL ( Custom Protocol UIX )
-6. VMOS VIRTUAL BOX ISO
-7. Mars Preserve Co-Op
-8. AI BLOCKCHAIN
-9. SIGIL CUBE MATRIX
+    return %config;
+}
 
+# Interactive Menu Interface (GUIX / UIX Simulation)
+sub display_menu {
+    print "\n" . ("=" x 40) . "\n";
+    print " GUIX: INTERFACE LOADED FROM USB1 SANDISK USB-DEVICE\n";
+    print ("=" x 40) . "\n";
+    print "0. Exit Program\n";
+    print "1. Launch setup.exe*\n";
+    print "2. <-- Settings -->\n";
+    print "3. \$: Configurations\n";
+    print "4. // OpenFiles Quick Fixes Patchwork\n";
+    print "5. XTTPS XSSL ( Custom Protocol UIX )\n";
+    print "6. VMOS VIRTUAL BOX ISO\n";
+    print "7. Mars Preserve Co-Op\n";
+    print "8. AI BLOCKCHAIN\n";
+    print "9. SIGIL CUBE MATRIX\n";
+    print "----------------------------------------\n";
+    print "Select an option [0-9]: ";
+}
 
+sub handle_menu_choice {
+    my ($choice) = @_;
+    
+    # Handle user choice cleanly using conditional logic
+    if (!defined $choice) {
+        return 0;
+    }
 
+    for ($choice) {
+        /^0$/ && do { print "Exiting program...\n"; return 0; };
+        /^1$/ && do { print "Launching setup.exe...\n"; last; };
+        /^2$/ && do { print "Opening Settings...\n"; last; };
+        /^3$/ && do { print "Loading Configurations...\n"; last; };
+        /^4$/ && do { print "Applying OpenFiles Quick Fixes Patchwork...\n"; last; };
+        /^5$/ && do { print "Initializing XTTPS XSSL Custom Protocol UIX...\n"; last; };
+        /^6$/ && do { print "Loading VMOS VIRTUAL BOX ISO...\n"; last; };
+        /^7$/ && do { print "Connecting to Mars Preserve Co-Op...\n"; last; };
+        /^8$/ && do { print "Initializing AI BLOCKCHAIN...\n"; last; };
+        /^9$/ && do { print "Rendering SIGIL CUBE MATRIX...\n"; last; };
+        print "Invalid selection or unhandled command.\n";
+    }
+    return 1;
+}
 
-END;
+# Main Execution Guard
+if (caller0) { # Standard execution check
+    my %result_data = run_pipeline();
+    
+    # If running interactively, show menu loop
+    if (-t STDIN) {
+        my $running = 1;
+        while ($running) {
+            display_menu();
+            chomp(my $input = <STDIN>);
+            $running = handle_menu_choice($input);
+        }
+    }
+}
 
+```
 
 1;
-
-
-EOF -- EOT -- EOL # FTL END;
-
-
-```
+__END__
